@@ -1,0 +1,158 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Directory</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>👥 Employee Directory</h1>
+        <div class="search-sort">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search by name or email..."
+          />
+          <select id="sortSelect">
+            <option value="">Sort</option>
+            <option value="firstName">First Name</option>
+            <option value="department">Department</option>
+          </select>
+        </div>
+        <button id="addEmployeeBtn">➕ Add Employee</button>
+      </header>
+
+      <div id="employeeList" class="employee-grid"></div>
+
+      Pagination UI -->
+<!-- <div class="pagination">
+        <button id="prevPage">⬅️ Prev</button>
+        <span id="pageInfo">Page 1</span>
+        <button id="nextPage">Next ➡️</button>
+        <select id="itemsPerPage">
+          <option value="5">5 / page</option>
+          <option value="10" selected>10 / page</option>
+          <option value="25">25 / page</option>
+        </select>
+      </div>
+    </div>
+
+     Add/Edit Form Modal -->
+<!-- <div id="employeeFormModal" class="modal hidden">
+      <form id="employeeForm">
+        <h2 id="formTitle">Add Employee</h2>
+        <input type="hidden" id="employeeId" />
+        <input type="text" id="firstName" placeholder="First Name" required />
+        <input type="text" id="lastName" placeholder="Last Name" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="text" id="department" placeholder="Department" required />
+        <input type="text" id="role" placeholder="Role" required />
+        <button type="submit">💾 Save</button>
+        <button type="button" id="cancelBtn">❌ Cancel</button>
+      </form>
+    </div>
+
+     Toast -->
+<!-- 
+    <div id="toast" class="toast hidden">Saved!</div>
+
+    <script src="./js/data.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Directory</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>👥 Employee Directory</h1>
+        <p>Manage your team members and their information</p>
+
+        <div class="controls-top">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search by name or email..."
+          />
+          <select id="itemsPerPage">
+            <option value="10">10 per page</option>
+            <option value="25" selected>25 per page</option>
+            <option value="50">50 per page</option>
+            <option value="100">100 per page</option>
+          </select>
+          <button id="addEmployeeBtn">➕ Add Employee</button>
+        </div>
+
+        <div class="filters">
+          <input
+            type="text"
+            id="filterFirstName"
+            placeholder="Filter by first name..."
+          />
+          <select id="filterDepartment">
+            <option value="">All departments</option>
+          </select>
+          <select id="filterRole">
+            <option value="">All roles</option>
+          </select>
+          <button id="clearFilters">Clear Filters</button>
+        </div>
+
+        <div class="sort">
+          <label>Sort by:</label>
+          <select id="sortBy">
+            <option value="firstName">First Name</option>
+            <option value="department">Department</option>
+            <option value="role">Role</option>
+          </select>
+          <select id="sortOrder">
+            <option value="asc">A–Z</option>
+            <option value="desc">Z–A</option>
+          </select>
+        </div>
+
+        <div id="pageStatus">Showing 0 employees</div>
+      </header>
+
+      <div id="employeeList" class="employee-grid"></div>
+
+      <!-- Pagination UI -->
+      <div class="pagination">
+        <button id="prevPage">⬅️ Prev</button>
+        <span id="pageInfo">Page 1</span>
+        <button id="nextPage">Next ➡️</button>
+      </div>
+    </div>
+
+    <!-- Add/Edit Form Modal -->
+    <div id="employeeFormModal" class="modal hidden">
+      <form id="employeeForm">
+        <h2 id="formTitle">Add Employee</h2>
+        <input type="hidden" id="employeeId" />
+        <input type="text" id="firstName" placeholder="First Name" required />
+        <input type="text" id="lastName" placeholder="Last Name" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="text" id="department" placeholder="Department" required />
+        <input type="text" id="role" placeholder="Role" required />
+        <button type="submit">💾 Save</button>
+        <button type="button" id="cancelBtn">❌ Cancel</button>
+      </form>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="toast hidden">Saved!</div>
+
+    <script src="./js/data.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
