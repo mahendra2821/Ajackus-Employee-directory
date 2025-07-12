@@ -1,83 +1,50 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Employee Directory</title>
-    <link rel="stylesheet" href="./css/style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <header>
-        <h1>👥 Employee Directory</h1>
-        <div class="search-sort">
-          <input
-            type="text"
-            id="searchInput"
-            placeholder="Search by name or email..."
-          />
-          <select id="sortSelect">
-            <option value="">Sort</option>
-            <option value="firstName">First Name</option>
-            <option value="department">Department</option>
-          </select>
-        </div>
-        <button id="addEmployeeBtn">➕ Add Employee</button>
-      </header>
-
-      <div id="employeeList" class="employee-grid"></div>
-
-      Pagination UI -->
-<!-- <div class="pagination">
-        <button id="prevPage">⬅️ Prev</button>
-        <span id="pageInfo">Page 1</span>
-        <button id="nextPage">Next ➡️</button>
-        <select id="itemsPerPage">
-          <option value="5">5 / page</option>
-          <option value="10" selected>10 / page</option>
-          <option value="25">25 / page</option>
-        </select>
-      </div>
-    </div>
-
-     Add/Edit Form Modal -->
-<!-- <div id="employeeFormModal" class="modal hidden">
-      <form id="employeeForm">
-        <h2 id="formTitle">Add Employee</h2>
-        <input type="hidden" id="employeeId" />
-        <input type="text" id="firstName" placeholder="First Name" required />
-        <input type="text" id="lastName" placeholder="Last Name" required />
-        <input type="email" id="email" placeholder="Email" required />
-        <input type="text" id="department" placeholder="Department" required />
-        <input type="text" id="role" placeholder="Role" required />
-        <button type="submit">💾 Save</button>
-        <button type="button" id="cancelBtn">❌ Cancel</button>
-      </form>
-    </div>
-
-     Toast -->
-<!-- 
-    <div id="toast" class="toast hidden">Saved!</div>
-
-    <script src="./js/data.js"></script>
-    <script src="./js/app.js"></script>
-  </body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Meta tags for character set and responsiveness -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Employee Directory</title>
+
+    <!-- External CSS file -->
     <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- Inline styles for theme toggle button -->
+    <style>
+      .theme-toggle {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+      }
+
+      @media (max-width: 768px) {
+        .theme-toggle {
+          top: 10px;
+          right: 10px;
+          font-size: 18px;
+        }
+      }
+    </style>
   </head>
+
   <body>
+    <!-- Theme toggle button for dark/light mode -->
+    <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+      🌙
+    </button>
+
+    <!-- Main container -->
     <div class="container">
       <header>
+        <!-- Heading and subheading -->
         <h1>👥 Employee Directory</h1>
         <p>Manage your team members and their information</p>
 
+        <!-- Top controls: Search, items per page, and add button -->
         <div class="controls-top">
           <input
             type="text"
@@ -93,6 +60,7 @@
           <button id="addEmployeeBtn">➕ Add Employee</button>
         </div>
 
+        <!-- Filters: By first name, department, role -->
         <div class="filters">
           <input
             type="text"
@@ -108,6 +76,7 @@
           <button id="clearFilters">Clear Filters</button>
         </div>
 
+        <!-- Sorting options -->
         <div class="sort">
           <label>Sort by:</label>
           <select id="sortBy">
@@ -121,12 +90,14 @@
           </select>
         </div>
 
+        <!-- Dynamic status text -->
         <div id="pageStatus">Showing 0 employees</div>
       </header>
 
+      <!-- Grid where employee cards will be rendered -->
       <div id="employeeList" class="employee-grid"></div>
 
-      <!-- Pagination UI -->
+      <!-- Pagination controls -->
       <div class="pagination">
         <button id="prevPage">⬅️ Prev</button>
         <span id="pageInfo">Page 1</span>
@@ -134,7 +105,7 @@
       </div>
     </div>
 
-    <!-- Add/Edit Form Modal -->
+    <!-- Modal form for Add/Edit Employee -->
     <div id="employeeFormModal" class="modal hidden">
       <form id="employeeForm">
         <h2 id="formTitle">Add Employee</h2>
@@ -144,14 +115,26 @@
         <input type="email" id="email" placeholder="Email" required />
         <input type="text" id="department" placeholder="Department" required />
         <input type="text" id="role" placeholder="Role" required />
-        <button type="submit">💾 Save</button>
+        <button type="submit">📂 Save</button>
         <button type="button" id="cancelBtn">❌ Cancel</button>
       </form>
     </div>
 
-    <!-- Toast -->
+    <!-- Toast notification -->
     <div id="toast" class="toast hidden">Saved!</div>
 
+    <!-- Script to handle theme toggle -->
+    <script>
+      const toggleBtn = document.getElementById("themeToggle");
+      toggleBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+        toggleBtn.textContent = document.body.classList.contains("dark-mode")
+          ? "☀️"
+          : "🌙";
+      });
+    </script>
+
+    <!-- Load employee data and app logic -->
     <script src="./js/data.js"></script>
     <script src="./js/app.js"></script>
   </body>
